@@ -1,33 +1,24 @@
 nav {
   position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 120px;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: 1000;
   background-color: #4056a1;
   color: #FFFF;
 }
 
-p {
-  color: black;
-}
-
-span {
-  margin: 1.5em;
-}
-
 nav > span {
   font-family: 'Bungee', sans-serif;
+  margin: 2%;
 }
 
-nav .float-right {
-  float: right;
-  font-size: 15px;
-  margin-top: 55px;
+.nav-title {
+  font-size: 38px;
 }
 
-nav .float-left {
-  float: left;
-  font-size: 35px;
+.compose-tweet-btn {
+  font-size: 20px;
 }

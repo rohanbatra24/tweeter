@@ -1,40 +1,39 @@
-section {
-  position: absolute;
-  width: 90%;
-  left: 5%;
-  right: 5%;
-}
-
 textarea {
-  display: block;
-  margin-bottom: 15px;
-  width: 100%;
   background-color: #729e6f;
   border-radius: 20px;
-}
-
-label {
-  margin: 15px;
-  margin-left: 0;
-  display: block;
-}
-
-form > div {
-  border-bottom: 5px solid black;
+  padding: 2%;
 }
 
 output {
-  float: right;
-  margin-top: 10px;
   font-family: 'Bungee', sans-serif;
 }
 
 button {
   color: azure;
-  float: left;
-  margin-top: 10px;
   font-family: 'Bungee', sans-serif;
   background-color: #4056a1;
+}
+
+.new-tweet {
+  width: 90%;
+}
+
+.new-twt-header {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+}
+
+.new-twt-header label {
+  padding: 2%;
+}
+
+.new-twt-footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 2%;
+  border-top: 5px solid black;
+  padding: 2%;
 }
 
 .counter-color {
@@ -46,6 +45,8 @@ button {
   padding: 5px;
   font-size: 30px;
   margin: 10px;
+  text-align: center;
+  color: darkred;
 }
 
 .show {

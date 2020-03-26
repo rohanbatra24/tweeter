@@ -1,37 +1,43 @@
 #tweet-container {
-  position: relative;
-  top: 240px;
+  width: 90%;
 }
 
 #tweet-container p {
-  margin-left: 15px;
-  margin-right: 15px;
-
+  margin-left: 1%;
+  margin-right: 1%;
   word-wrap: break-word;
-  /* text-overflow: ellipsis; */
 }
 
-article:hover #handle {
+.tweet:hover #handle {
   margin: 10px;
   opacity: 1;
 }
 
 #handle {
-  margin: 10px;
   opacity: 0;
 }
 
-#tweet-container > article {
-  margin: 20px;
+.tweet {
   border: 2px solid black;
+  padding: 2%;
+  margin: 4% 0 4% 0;
 }
 
-.float-left {
-  float: left;
+.tweet header {
+  display: flex;
+  justify-content: space-between;
 }
 
-.float-right {
-  float: right;
+.tweet p {
+  padding: 1%;
+}
+
+.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid black;
+  font-size: 17px;
+  padding: 1%;
 }
 
 .social-media-imgs > img {
@@ -39,45 +45,13 @@ article:hover #handle {
   width: 30px;
 }
 
-#tweet-container header img {
-  height: 50px;
-  width: 50px;
-  margin: 5px;
-  vertical-align: middle;
-}
-
-#tweet-container header {
-  width: 100%;
-  overflow: auto;
-}
-
-#tweet-container footer {
-  width: 100%;
-  overflow: auto;
-  border-top: 2px solid black;
-}
-
-#tweet-container > header span {
-  margin: 15px;
-}
-
-#tweet-container footer span {
-  margin: 15px;
-  margin-left: 20px;
-  font-size: 17px;
-}
-
-#tweet-container footer img {
-  margin: 0;
-}
-
-article {
+.tweet {
   transition: box-shadow .9s;
   transition: filter .9s;
   opacity: 0.7;
 }
 
-article:hover {
+.tweet:hover {
   box-shadow: 8px 8px rgb(18, 148, 109);
   opacity: 1;
 }

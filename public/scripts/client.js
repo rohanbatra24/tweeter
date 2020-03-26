@@ -92,10 +92,8 @@ $(document).ready(function() {
 
     const html = `
       <header>
-      <div class='float-left'>
         <img src="${tweetData.user.avatars}">
         <span>${tweetData.user.name}</span>
-      </div>
       <div class='float-right'>
         <span id='handle'>${tweetData.user.handle}</span>
       </div>

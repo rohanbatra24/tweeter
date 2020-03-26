@@ -41,8 +41,8 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span class='float-left'>tweeter</span>
-      <span class='float-right'>Write a new tweet</span>
+      <span class='nav-title'>tweeter</span>
+      <span class='compose-tweet-btn'>Write a new tweet</span>
     </nav>
 
     <header class = 'main-header'>
@@ -58,15 +58,16 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> -->
         <form method="POST" action="/tweets" class='tweetForm'>
-          <div>
+          <div class='new-twt-header'>
             <p id='error'></p>
-            <label for="tweet-text"><b>What are you humming about?</b></label>
+            <label for="tweet-text">What are you humming about?</label>
             <textarea name="text" id="tweet-text"></textarea>
           </div>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
+          <div class='new-twt-footer'>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
         </form>
       </section>
       <section id="tweet-container">
