@@ -42,7 +42,10 @@ button {
 }
 
 .error {
-  border: 2px dotted red;
+  border: 2px solid red;
+  padding: 5px;
+  font-size: 30px;
+  margin: 10px;
 }
 
 .show {
