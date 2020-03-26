@@ -3,6 +3,14 @@
   top: 240px;
 }
 
+#tweet-container p {
+  margin-left: 15px;
+  margin-right: 15px;
+
+  word-wrap: break-word;
+  /* text-overflow: ellipsis; */
+}
+
 article:hover #handle {
   margin: 10px;
   opacity: 1;
