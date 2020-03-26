@@ -89,6 +89,45 @@ $(document).ready(function() {
       return div.innerHTML;
     };
 
+    let timeStamp = tweetData.created_at;
+
+    const convertTimestampToDays = (timeStamp) => {
+      // get total seconds between the times
+      let diff = Math.abs(Date.now() - timeStamp) / 1000;
+
+      // calculate (and subtract) whole days
+      let days = Math.floor(diff / 86400);
+      diff -= days * 86400;
+
+      // calculate (and subtract) whole hours
+      let hours = Math.floor(diff / 3600) % 24;
+      diff -= hours * 3600;
+
+      // calculate (and subtract) whole minutes
+      let minutes = Math.floor(diff / 60) % 60;
+      diff -= minutes * 60;
+
+      console.log(days);
+
+      if (days === 1) {
+        return `1 day ago`;
+      } else if (days > 1) {
+        return `${days} days ago`;
+      } else if (hours > 1) {
+        return `$(hours) hours ago`;
+      } else if (hours <= 1) {
+        if (minutes === 1) {
+          return `1 minute ago`;
+        } else if (minutes === 0) {
+          return `just now..`;
+        } else if (minutes > 1) {
+          return `${minutes} minutes ago`;
+        }
+      }
+
+      // return `${days}d ${hours}h ${minutes}m`;
+    };
+
     const html = `
       <header>
         <img src="${tweetData.user.avatars}">
@@ -100,7 +139,7 @@ $(document).ready(function() {
     <p>${escape(tweetData.content.text)}</p>
     <footer>
       <div class='float-left'>
-        <span>${tweetData.created_at}</span>
+        <span>${convertTimestampToDays(timeStamp)}</span>
       </div>
       <div class='float-right social-media-imgs'>
         <img src="/images/tweet.png" alt="">
