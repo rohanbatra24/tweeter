@@ -1,0 +1,55 @@
+.main-header {
+  height: 400px;
+  width: 100%;
+  background-color: #214441;
+  background-image: url('../images/bright-squares.png');
+}
+
+.main-header > div {
+  position: relative;
+  top: 135px;
+  width: 100%;
+}
+
+.main-header > div > img {
+  position: absolute;
+  display: block;
+  left: 50%;
+  margin-left: -50px;
+  width: 150px;
+  height: 150px;
+}
+
+.main-header > div > h2 {
+  color: antiquewhite;
+  display: block;
+  position: absolute;
+  margin: auto;
+  margin-top: 142px;
+  margin-left: 46%;
+}
+
+/* header {
+  height: 400px;
+  width: 100%;
+  background-color: #214441;
+  background-image: url('../images/bright-squares.png');
+}
+
+header > div > img {
+  position: relative;
+  display: block;
+  top: 131px;
+  left: 42vw;
+  height: 200px;
+  width: 200px;
+}
+
+header > div > h2 {
+  position: absolute;
+  top: 304px;
+  left: 43vw;
+  height: 200px;
+  width: 200px;
+  color: antiquewhite;
+} */

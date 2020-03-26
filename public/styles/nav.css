@@ -1,0 +1,33 @@
+nav {
+  position: fixed;
+  height: 120px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #4056a1;
+  color: #FFFF;
+}
+
+p {
+  color: black;
+}
+
+span {
+  margin: 1.5em;
+}
+
+nav > span {
+  font-family: 'Bungee', sans-serif;
+}
+
+nav .float-right {
+  float: right;
+  font-size: 15px;
+  margin-top: 55px;
+}
+
+nav .float-left {
+  float: left;
+  font-size: 35px;
+}

@@ -1,0 +1,42 @@
+section {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  right: 5%;
+}
+
+textarea {
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  background-color: #729e6f;
+  border-radius: 20px;
+}
+
+label {
+  margin: 15px;
+  margin-left: 0;
+  display: block;
+}
+
+form > div {
+  border-bottom: 5px solid black;
+}
+
+output {
+  float: right;
+  margin-top: 10px;
+  font-family: 'Bungee', sans-serif;
+}
+
+button {
+  color: azure;
+  float: left;
+  margin-top: 10px;
+  font-family: 'Bungee', sans-serif;
+  background-color: #4056a1;
+}
+
+.counter-color {
+  color: red;
+}
