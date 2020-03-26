@@ -17,13 +17,22 @@ $(document).ready(function() {
   $('.tweetForm').on('submit', function(event) {
     if ($('#tweet-text').val() === '' || $('#tweet-text').val() === null) {
       event.preventDefault();
-      alert(`There's nothing there`);
+      $('.error').slideDown(1000, function() {
+        $('.error').text("🚩 It's empty 🚩");
+      });
+      // alert(`There's nothing there`);
       return;
     } else if ($('#tweet-text').val().length > 140) {
       event.preventDefault();
-      alert(`It's too long!`);
+      $('.error').slideDown(1000, function() {
+        $('.error').text('🚩 Too long 🚩');
+      });
       return;
     }
+    if ($('.error').text())
+      $('.error').slideUp(2000, function() {
+        $('.error').empty();
+      });
 
     console.log('before ajax call');
     event.preventDefault();
