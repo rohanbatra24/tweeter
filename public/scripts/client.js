@@ -43,7 +43,6 @@ $(document).ready(function() {
     const userInput = `text=${$('#tweet-text').val()}`; // another way to serialize
     // const userInput = $('.tweetForm').serialize();
 
-    console.log(userInput);
     $.ajax({
       type: 'POST',
       url: '/tweets',
@@ -51,7 +50,9 @@ $(document).ready(function() {
     })
       .then(function() {
         $('#tweet-container').empty();
+
         loadTweets();
+        $('form').get(0).reset();
       })
       .catch(function(err) {
         console.log('failiure', err);
