@@ -53,6 +53,7 @@ $(document).ready(function() {
 
         loadTweets();
         $('form').get(0).reset();
+        $('.counter').val(0);
       })
       .catch(function(err) {
         console.log('failiure', err);
@@ -82,9 +83,6 @@ $(document).ready(function() {
 
   const createTweetElement = (tweetData) => {
     const $tweet = $('<article>').addClass('tweet');
-    const safeUserInput = document.createTextNode(tweetData.content.text);
-    console.log('====', safeUserInput);
-
     const escape = function(str) {
       let div = document.createElement('div');
       div.appendChild(document.createTextNode(str));

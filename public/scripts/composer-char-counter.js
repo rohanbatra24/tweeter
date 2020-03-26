@@ -17,10 +17,19 @@ $(document).ready(function() {
   //   console.log(event.type); //The this keyword is a reference to the button
   // });
 
-  $('textArea').on('keyup', function() {
+  $('textArea').on('input', function() {
     let counter = 140 - $(this).val().length;
-    $(this).parent().siblings()[1].innerHTML = counter;
-    if ($(this).parent().siblings()[1].innerHTML <= 0) {
+
+    const $form = $(this).parent().parent();
+
+    const $counter = $('.counter', $form);
+
+    $counter.text(counter);
+
+    // $(this).parent().siblings().children()[1].innerHTML = counter;
+
+    if (counter < 0) {
+      console.log('IN IF');
       $('.counter').addClass('counter-color');
     } else {
       $('.counter').removeClass('counter-color');
