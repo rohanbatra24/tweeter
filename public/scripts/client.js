@@ -20,6 +20,7 @@ $(document).ready(function() {
       alert(`There's nothing there`);
       return;
     } else if ($('#tweet-text').val().length > 140) {
+      event.preventDefault();
       alert(`It's too long!`);
       return;
     }
@@ -27,9 +28,11 @@ $(document).ready(function() {
     console.log('before ajax call');
     event.preventDefault();
     console.log('Button clicked, performing ajax call...');
-    const userInput = `text=${$('#tweet-text').val()}`;
-    const serializeForm = $('.tweetForm').serialize();
-    console.log(serializeForm, '======', userInput);
+
+    const userInput = `text=${$('#tweet-text').val()}`; // another way to serialize
+    // const userInput = $('.tweetForm').serialize();
+
+    console.log(userInput);
     $.ajax({
       type: 'POST',
       url: '/tweets',
@@ -67,6 +70,15 @@ $(document).ready(function() {
 
   const createTweetElement = (tweetData) => {
     const $tweet = $('<article>').addClass('tweet');
+    const safeUserInput = document.createTextNode(tweetData.content.text);
+    console.log('====', safeUserInput);
+
+    const escape = function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
     const html = `
       <header>
       <div class='float-left'>
@@ -77,7 +89,7 @@ $(document).ready(function() {
         <span id='handle'>${tweetData.user.handle}</span>
       </div>
     </header>
-    <p>${tweetData.content.text}</p>
+    <p>${escape(tweetData.content.text)}</p>
     <footer>
       <div class='float-left'>
         <span>${tweetData.created_at}</span>
