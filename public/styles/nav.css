@@ -1,3 +1,4 @@
+/* for wide desktop view */
 @media (min-width: 1024px) {
   .wrapper {
     display: flex;
@@ -21,6 +22,7 @@
   }
 }
 
+/* tablet view - modifies nav for smaller screen */
 @media (max-width: 1024px) {
   .nav {
     background-color: #214441;
@@ -28,6 +30,7 @@
   }
 }
 
+/* removes nav for mobile  */
 @media (max-width: 335px) {
   .nav {
     display: none;

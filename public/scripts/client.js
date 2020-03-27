@@ -1,3 +1,4 @@
+// helper function to convert timestamp dynamically and return days,hours,minutes..
 const convertTimestampToDays = (timeStamp) => {
   // get total seconds between the times
   let diff = Math.abs(Date.now() - timeStamp) / 1000;
@@ -40,14 +41,16 @@ $(document).ready(function() {
   });
 
   $('.tweetForm').on('submit', function(event) {
+    //if input is empty, display error
     if ($('#tweet-text').val() === '' || $('#tweet-text').val() === null) {
       event.preventDefault();
       $('#error').slideDown(1, function() {
         $('#error').addClass('show# error');
         $('#error').text("🚩 It's empty 🚩");
       });
-      // alert(`There's nothing there`);
       return;
+
+      // if input is more than 140 chars, display error
     } else if ($('#tweet-text').val().length > 140) {
       event.preventDefault();
       $('#error').slideDown(1, function() {
@@ -56,6 +59,8 @@ $(document).ready(function() {
       });
       return;
     }
+
+    // if error message exists on page, slide away the error
     if ($('#error').text())
       $('#error').slideUp(1, function() {
         $('#error').empty();
@@ -65,17 +70,19 @@ $(document).ready(function() {
     event.preventDefault();
     console.log('Button clicked, performing ajax call...');
 
-    const userInput = `text=${$('#tweet-text').val()}`; // another way to serialize
-    // const userInput = $('.tweetForm').serialize();
+    // used string literal instead of .serialize function
+    const userInput = `text=${$('#tweet-text').val()}`;
 
+    //
     $.ajax({
       type: 'POST',
       url: '/tweets',
       data: userInput
     })
       .then(function() {
+        // clear the exisitng tweets on page on new POST request
         $('#tweet-container').empty();
-
+        //call function to prepend new tweet to page
         loadTweets();
         $('form').get(0).reset();
         $('.counter').val(0);
@@ -94,8 +101,10 @@ $(document).ready(function() {
     });
   };
 
+  //prepend all tweets to page
   loadTweets();
 
+  // helper function to create and return html for new tweet
   const createTweetElement = (tweetData) => {
     const $tweet = $('<article>').addClass('tweet');
     const escape = function(str) {
