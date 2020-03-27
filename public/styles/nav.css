@@ -1,5 +1,5 @@
 @media (min-width: 1024px) {
-  body {
+  .wrapper {
     display: flex;
   }
 
@@ -9,15 +9,15 @@
 
   .container {
     margin: 5%;
-    margin-top: 14%;
-    max-width: 700px;
-    max-width: 700px;
+    max-width: 900px;
+    width: 900px;
+    margin-top: 10rem;
   }
 
   .main-header {
     margin: 5%;
-    margin-top: 30%;
     flex-shrink: 2;
+    margin-top: 10rem;
   }
 }
 
@@ -36,6 +36,7 @@
 
 nav {
   position: fixed;
+  padding: 1%;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -55,6 +56,6 @@ nav > span {
   font-size: 38px;
 }
 
-.compose-tweet-btn {
-  font-size: 20px;
+#nav-btn {
+  color: coral;
 }

@@ -13,6 +13,10 @@
   opacity: 1;
 }
 
+.tweet:hover .social-media-imgs img {
+  opacity: 1;
+}
+
 #handle {
   opacity: 0;
 }
@@ -26,6 +30,16 @@
 .tweet header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 3%;
+}
+
+.tweet .float-left {
+  display: flex;
+  align-items: center;
+}
+
+.tweet .float-left span {
+  margin-left: 7px;
 }
 
 .tweet p {
@@ -43,6 +57,7 @@
 .social-media-imgs > img {
   height: 30px;
   width: 30px;
+  opacity: 0;
 }
 
 .tweet {

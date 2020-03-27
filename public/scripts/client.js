@@ -1,18 +1,43 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+const convertTimestampToDays = (timeStamp) => {
+  // get total seconds between the times
+  let diff = Math.abs(Date.now() - timeStamp) / 1000;
 
-// Test / driver code (temporary). Eventually will get this from the server.
+  // calculate (and subtract) whole days
+  let days = Math.floor(diff / 86400);
+  diff -= days * 86400;
 
-const sendTweet = () => {
-  const userInput = $('#tweet-text').val();
+  // calculate (and subtract) whole hours
+  let hours = Math.floor(diff / 3600) % 24;
+  diff -= hours * 3600;
+
+  // calculate (and subtract) whole minutes
+  let minutes = Math.floor(diff / 60) % 60;
+  diff -= minutes * 60;
+
+  if (days === 1) {
+    return `1 day ago`;
+  } else if (days > 1) {
+    return `${days} days ago`;
+  } else if (hours > 1) {
+    return `$(hours) hours ago`;
+  } else if (hours <= 1) {
+    if (minutes === 1) {
+      return `1 minute ago`;
+    } else if (minutes === 0) {
+      return `just now..`;
+    } else if (minutes > 1) {
+      return `${minutes} minutes ago`;
+    }
+  }
 };
 
 // Main logic
 $(document).ready(function() {
-  // sendTweet();
+  $('form').addClass('show');
+
+  $('#nav-btn').on('click', () => {
+    $('form').toggleClass('show');
+  });
 
   $('.tweetForm').on('submit', function(event) {
     if ($('#tweet-text').val() === '' || $('#tweet-text').val() === null) {
@@ -71,16 +96,6 @@ $(document).ready(function() {
 
   loadTweets();
 
-  const renderTweets = function(tweets) {
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
-    for (let tweet of tweets) {
-      const $tweetToAppend = createTweetElement(tweet);
-      $('#tweet-container').append($tweetToAppend);
-    }
-  };
-
   const createTweetElement = (tweetData) => {
     const $tweet = $('<article>').addClass('tweet');
     const escape = function(str) {
@@ -91,47 +106,12 @@ $(document).ready(function() {
 
     let timeStamp = tweetData.created_at;
 
-    const convertTimestampToDays = (timeStamp) => {
-      // get total seconds between the times
-      let diff = Math.abs(Date.now() - timeStamp) / 1000;
-
-      // calculate (and subtract) whole days
-      let days = Math.floor(diff / 86400);
-      diff -= days * 86400;
-
-      // calculate (and subtract) whole hours
-      let hours = Math.floor(diff / 3600) % 24;
-      diff -= hours * 3600;
-
-      // calculate (and subtract) whole minutes
-      let minutes = Math.floor(diff / 60) % 60;
-      diff -= minutes * 60;
-
-      console.log(days);
-
-      if (days === 1) {
-        return `1 day ago`;
-      } else if (days > 1) {
-        return `${days} days ago`;
-      } else if (hours > 1) {
-        return `$(hours) hours ago`;
-      } else if (hours <= 1) {
-        if (minutes === 1) {
-          return `1 minute ago`;
-        } else if (minutes === 0) {
-          return `just now..`;
-        } else if (minutes > 1) {
-          return `${minutes} minutes ago`;
-        }
-      }
-
-      // return `${days}d ${hours}h ${minutes}m`;
-    };
-
     const html = `
       <header>
-        <img src="${tweetData.user.avatars}">
-        <span>${tweetData.user.name}</span>
+        <div class='float-left'>
+          <img src="${tweetData.user.avatars}">
+          <span>${tweetData.user.name}</span>
+        </div>
       <div class='float-right'>
         <span id='handle'>${tweetData.user.handle}</span>
       </div>
@@ -152,43 +132,4 @@ $(document).ready(function() {
 
     return finalTweet;
   };
-
-  // renderTweets(data);
 });
-
-// Dummy Data
-// const data = [
-//   {
-//     user: {
-//       name: 'Newton',
-//       avatars: 'https://i.imgur.com/73hZDYK.png',
-//       handle: '@SirIsaac'
-//     },
-//     content: {
-//       text: 'If I have seen further it is by standing on the shoulders of giants'
-//     },
-//     created_at: 1461116232227
-//   },
-//   {
-//     user: {
-//       name: 'Descartes',
-//       avatars: 'https://i.imgur.com/nlhLi3I.png',
-//       handle: '@rd'
-//     },
-//     content: {
-//       text: 'Je pense , donc je suis'
-//     },
-//     created_at: 1461113959088
-//   },
-//   {
-//     user: {
-//       name: 'HELLO0000',
-//       avatars: 'https://i.imgur.com/nlhLi3I.png',
-//       handle: '@rbbbbbb'
-//     },
-//     content: {
-//       text: 'Hello Hello'
-//     },
-//     created_at: 1461113959088
-//   }
-// ];

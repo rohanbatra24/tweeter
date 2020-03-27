@@ -42,36 +42,43 @@
     <!-- Top nav bar (fixed) -->
     <nav class='nav'>
       <span class='nav-title'>tweeter</span>
-      <span class='compose-tweet-btn'>Write a new tweet</span>
+      <span class='compose-tweet-btn'><button id='nav-btn'>Write a new tweet</button></span>
     </nav>
 
-    <header class = 'main-header'>
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Your Name</h2>
-      </div>
-    </header>
+    <div class='wrapper'>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <form method="POST" action="/tweets" class='tweetForm'>
-          <div class='new-twt-header'>
-            <p id='error'></p>
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea name="text" id="tweet-text"></textarea>
-          </div>
-          <div class='new-twt-footer'>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <section id="tweet-container">
-      </section>
-    </main>
+      <header class = 'main-header'>
+        <div>
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div>
+            <h2>Your Name</h2>
+        </div>
+      </header>
+  
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <form method="POST" action="/tweets" class='tweetForm'>
+            <div class='new-twt-header'>
+              <p id='error'></p>
+              <label for="tweet-text">What are you humming about?</label>
+              <textarea name="text" id="tweet-text"></textarea>
+            </div>
+            <div class='new-twt-footer'>
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <section id="tweet-container">
+        </section>
+      </main>
+
+
+    </div>
+
+    
   </body>
 </html>
